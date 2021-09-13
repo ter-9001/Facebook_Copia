@@ -9,6 +9,32 @@
              
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
              <script src="story_line.js"></script>
+             
+             <?php
+
+
+                            $conn = new mysqli("localhost", "root", "", "Gabriel");
+                            
+
+                            $sql = mysqli_query($conn,"SELECT Usuario from Facebook_Copia where id=1;");
+                            
+
+                            if($sql)
+                            {
+                                while( $row = mysqli_fetch_row($sql))
+                                {
+                                        $usuário = $row[0];
+                                        
+                                }
+                            
+                            }
+
+
+                            
+
+
+
+             ?>
 
             <title> Facebook </title> 
 
@@ -24,13 +50,12 @@
             display: flex; flex-direction: row; align-items: center;justify-content: space-between;">
                
 
-               <div style="justify-content: start; display: flex; flex-direction: row;">
+               <div id="div_nav" style="justify-content: start; display: flex; flex-direction: row;">
                         
                         
                             <img src="https://www.facebook.com/rsrc.php/yD/r/d4ZIVX-5C-b.ico?_nc_eui2=AeHWxq756WPR2zGVTeNFyNe6k5Q9qm8iHrqTlD2qbyIeuq9iPEnD7mihGuAwum4JME09LLTUgO_a9USa9mImE9kY"
                             class="icon_nav" style="margin-right: 10px;">
                        
-
                        
                             <form action="action.php" method="post" enctype="multipart/form-data">
                             <label style="height: 50px; width: 50px;
@@ -44,10 +69,15 @@
                             </form>
                        
 
-                            <p class="usuario" style="font-family: Arial, sans-serif; font-size: 30px; 
-                            font-style: oblique;">
-                                Usuário
-                            </p>
+                            <div style="display:flex; position: relative">
+                                        
+                                        <form action="action.php" method="post" enctype="multipart/form-data">
+                                                    <input id="put_name" type="text" style="position:absolute;font-family: Arial, sans-serif; font-size: 30px; 
+                                                    font-style: oblique;background-color: rgb(26, 25, 25); border: none" 
+                                                    <?php echo "value=\"".$usuário."\""; ?> name="put_name" onchange="form.submit()"/>
+                                        </form>            
+                            </div>
+
                </div>
 
 
@@ -167,13 +197,22 @@
                                         {
                                             if(strpos($row[1],".png") || strpos($row[1],".jpg") )
                                             {
-                                                        echo  "<div id=\"post_imagem\" 
+                                                        echo  "<div id=\"post".$row[4]."\" 
                                                     class=\"post\"> 
                                                     
                                                         <div style=\"display: flex; flex-direction: row; align-items:flex-end\">
                                                             <img class=\"icon_post\">
                                                             <p class=\"usuario\">".$row[0]."</p>
                                                             <p style=\"color: rgb(182, 182, 186);\"> Postado em ".$row[3]." </p>
+                                                            <form action=\"action.php\" method=\"post\" enctype=\"multipart/form-data\">
+                                                            <label style=\"width: 40px; height: 40px; border-radius: 50%; margin: 0px 10px 5px 10px;
+                                                            background-image: url('trash-can_38501-removebg-preview.png');
+                                                            background-repeat: no-repeat; background-size: 100% 100%; padding: 20px 6px;display: inline-block;\"> 
+                                                                    
+                                                                    <input type=\"submit\" name=\"apagar\" value=\"".$row[4]."\" 
+                                                                    style=\"display: none; width: 100%; height: 100%\" />
+                                                            </label>
+                                                            </form>
                                                         </div>
                         
                                                         <div>
@@ -195,13 +234,22 @@
 
                                             if(strpos($row[1],".mp4") )
                                             {
-                                                        echo  "<div id=\"post_imagem\" 
+                                                        echo  "<div id=\"post".$row[4]."\" 
                                                     class=\"post\"> 
                                                     
                                                         <div style=\"display: flex; flex-direction: row; align-items:flex-end\">
                                                             <img class=\"icon_post\">
                                                             <p class=\"usuario\">".$row[0]."</p>
                                                             <p style=\"color: rgb(182, 182, 186);\"> Postado em ".$row[3]." </p>
+                                                            <form action=\"action.php\" method=\"post\" enctype=\"multipart/form-data\">
+                                                            <label style=\"width: 40px; height: 40px; border-radius: 50%; margin: 0px 10px 5px 10px;
+                                                            background-image: url('trash-can_38501-removebg-preview.png');
+                                                            background-repeat: no-repeat; background-size: 100% 100%; padding: 20px 6px;display: inline-block;\"> 
+                                                                    
+                                                                    <input type=\"submit\" name=\"apagar\" value=\"".$row[4]."\" 
+                                                                    style=\"display: none; width: 100%; height: 100%\" />
+                                                            </label>
+                                                            </form>
                                                         </div>
                         
                                                         <div>
@@ -224,15 +272,24 @@
 
 
 
-                                            if($row[1] == "none" )
+                                            if( ($row[1] == "none"))
                                             {
-                                                        echo  "<div id=\"post_texto\" 
+                                                        echo  "<div id=\"post".$row[4]."\" 
                                                         class=\"post\"> 
                                                         
                                                             <div style=\"display: flex; flex-direction: row; align-items:flex-end\">
                                                                 <img class=\"icon_post\">
                                                                 <p class=\"usuario\">".$row[0]."</p>
                                                                 <p style=\"color: rgb(182, 182, 186);\"> Postado em ".$row[3]." </p>
+                                                                <form action=\"action.php\" method=\"post\" enctype=\"multipart/form-data\">
+                                                                <label style=\"width: 40px; height: 40px; border-radius: 50%; margin: 0px 10px 5px 10px;
+                                                                background-image: url('trash-can_38501-removebg-preview.png');
+                                                                background-repeat: no-repeat; background-size: 100% 100%; padding: 20px 6px;display: inline-block;\"> 
+                                                                        
+                                                                        <input type=\"submit\" name=\"apagar\" value=\"".$row[4]."\" 
+                                                                        style=\"display: none; width: 100%; height: 100%\" />
+                                                                </label>
+                                                                </form>
                                                             </div>
                             
                                                             <div style=\"padding-top: 10px ;margin: 0 0 20px 40px;\">
