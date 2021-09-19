@@ -11,7 +11,7 @@
              <script src="story_line.js"></script>
              
              <?php
-
+               
 
                             $conn = new mysqli("localhost", "root", "", "Gabriel");
                             
@@ -58,9 +58,11 @@
                        
                        
                             <form action="action.php" method="post" enctype="multipart/form-data">
-                            <label style="height: 50px; width: 50px;
-                            background-image:url('Usuario.jpg');background-repeat: no-repeat; background-size: 100% 100%;
-                            border-radius: 50%;margin-right: 10px;">
+                            <?php   header("Cache-control: no-cache");
+                            
+                            echo "<label style=\"height: 50px; width: 50px;
+                            background-image:url('http://localhost/Facebook%20C%C3%B3pia/Usuario.jpg?".date("dmYhis")."');background-repeat: no-repeat; background-size: 100% 100%;
+                            border-radius: 50%;margin-right: 10px;\">" ?>
 
 
                                 <input name="imagem_usuario" onchange="form.submit()" type="file"/>
@@ -84,10 +86,10 @@
 
               
                
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2"  type="search" placeholder="Pesquisar" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-                    </form>                
+                    <div style="display:flex; flex-wrap: row">
+                        <input class="form-control mr-sm-2" id="pes" type="search" placeholder="Pesquisar" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" id="pesquisar_post">Pesquisar</button>
+                        </div>                
                 
                
                
@@ -117,7 +119,8 @@
                                             <div style="display: flex; flex-direction: row; 
                                             border-bottom: solid rgb(58, 60, 60) 0.2px; margin: 10px;">
 
-                                                        <img class="icon_post" />
+                                                        <?php echo "<img class=\"icon_post\"  
+                                                        src=\"http://localhost/Facebook%20C%C3%B3pia/Usuario.jpg?".date("dmYhisu")."\"/>" ?>
 
                                                         <input style="background-color: rgb(105, 105, 106);
                                                         border: rgb(84, 85, 87) 1px solid; border-radius: 15%; width: 100%; height: 45px;
@@ -201,7 +204,8 @@
                                                     class=\"post\"> 
                                                     
                                                         <div style=\"display: flex; flex-direction: row; align-items:flex-end\">
-                                                            <img class=\"icon_post\">
+                                                        <img class=\"icon_post\"  
+                                                        src=\"http://localhost/Facebook%20C%C3%B3pia/Usuario.jpg?".date("dmYhis")."\"/>
                                                             <p class=\"usuario\">".$row[0]."</p>
                                                             <p style=\"color: rgb(182, 182, 186);\"> Postado em ".$row[3]." </p>
                                                             <form action=\"action.php\" method=\"post\" enctype=\"multipart/form-data\">
@@ -238,7 +242,8 @@
                                                     class=\"post\"> 
                                                     
                                                         <div style=\"display: flex; flex-direction: row; align-items:flex-end\">
-                                                            <img class=\"icon_post\">
+                                                        <img class=\"icon_post\"  
+                                                        src=\"http://localhost/Facebook%20C%C3%B3pia/Usuario.jpg?".date("dmYhisu")."\"/>
                                                             <p class=\"usuario\">".$row[0]."</p>
                                                             <p style=\"color: rgb(182, 182, 186);\"> Postado em ".$row[3]." </p>
                                                             <form action=\"action.php\" method=\"post\" enctype=\"multipart/form-data\">
@@ -278,7 +283,8 @@
                                                         class=\"post\"> 
                                                         
                                                             <div style=\"display: flex; flex-direction: row; align-items:flex-end\">
-                                                                <img class=\"icon_post\">
+                                                            <img class=\"icon_post\"  
+                                                            src=\"http://localhost/Facebook%20C%C3%B3pia/Usuario.jpg?".date("dmYhisu")."\"/>
                                                                 <p class=\"usuario\">".$row[0]."</p>
                                                                 <p style=\"color: rgb(182, 182, 186);\"> Postado em ".$row[3]." </p>
                                                                 <form action=\"action.php\" method=\"post\" enctype=\"multipart/form-data\">
