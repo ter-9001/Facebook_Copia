@@ -1,6 +1,6 @@
 # Facebook_Copia
-#### Pagina ao estilo Facebook, em que você pode postar textos acomponhado ou não de vídeo ou imagens
-#### Além disso, pode-se pesquisar pelo texto das postagens, na barra principal, caso não deseja pesquisar nada deixe em branco o local da pesquisa e cicle no botão
+#### Pagina ao estilo Facebook, em que você pode postar textos acompanhado ou não de vídeo ou imagens
+#### Além disso, pode-se pesquisar pelo texto das postagens, na barra principal, caso não deseja pesquisar nada, deixe em branco o local da pesquisa e cicle no botão
 
 
 ### _Segue_ _as_ _imagens_ _exemplificativas_ 
